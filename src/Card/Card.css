@@ -1,0 +1,46 @@
+.CompactCard {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    overflow: hidden;
+    /* flex: 1;
+    height: 10rem !important;
+    border-radius: 0.7rem;
+    color: white;
+    padding: 1rem;
+    position: relative;
+    cursor: pointer; */
+  }
+  .CompactCard:hover {
+    box-shadow: none !important;
+  }
+  
+  /* radial bar */
+  .radialBar {
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    /* flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem; */
+  }
+  .CompactCard > img {
+    width: 100%;
+    height: 150px; 
+  }
+  
+  
+  .CompactCard > span {
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  /* sideDetail*/
+ 
+  
