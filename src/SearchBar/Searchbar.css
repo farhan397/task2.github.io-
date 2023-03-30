@@ -1,0 +1,15 @@
+
+  input {
+    all: unset;
+    font: 16px system-ui;
+    height: 98%;
+    width: 95%;
+    padding: 6px 10px;
+    margin-top: 1%;
+    border: 1px solid #ccc;  
+  }
+  .search-container{
+    
+    border: 1px solid #ccc;  
+  }
+
