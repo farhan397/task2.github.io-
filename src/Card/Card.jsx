@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
-// import { motion} from "framer-motion";
-// import { BiMessageSquareX} from "react-icons/bi";
+import { motion} from "framer-motion";
+import { BiMessageSquareX} from "react-icons/bi";
 import "./Card.css"
-
+// import { useSelector, useDispatch } from 'react-redux'
+// import { NotiInc } from '../states/reducers';
 
 const Card = ({item}) => {
     const [expanded, setExpanded] = useState(false);
@@ -11,14 +12,12 @@ const Card = ({item}) => {
     
   return (
    <>
-      {/* {expanded ? (
+      {expanded ? (
         
          <ExpandedCard param={item} setExpanded={() => setExpanded(false)} />
       ) : (
         <CompactCard param={item} setExpanded={() => setExpanded(true)} />
-      )} */}
-
-<CompactCard param={item} setExpanded={() => setExpanded(true)} />
+      )}
    
    </>
   )
@@ -43,14 +42,19 @@ function CompactCard({ param, setExpanded }) {
     return (
         <>
         <div className="fullcard"> 
-      <div
+      <motion.div
          className="CompactCard"
         style={{
           position:'relative'
 
-        }} >
+        }}
+      
+        // layoutId="expandableCard"
+         onClick={setExpanded}
+        
+      >
        
-         <img src={param.image} alt="Imgcard"/>   
+         <img src={param.img_src} alt="Imgcard"/>   
           <div className="radialbar"
           style={{
             position:'absolute'
@@ -58,15 +62,15 @@ function CompactCard({ param, setExpanded }) {
           }}
           >
             <div className="roverclass">
-            <span>${param.title}</span>
+          <span>${param.rover.name}</span>
           </div>
-         
-          
+          <div className="dateclass">
+          <span>${param.earth_date}</span>
+          </div>
           
           </div>
           
-          
-        </div>
+        </motion.div>
         <div>
           <button 
           //  onClick={savebtnclick}
@@ -74,40 +78,40 @@ function CompactCard({ param, setExpanded }) {
             width:'150px',
             height:'30px',
             backgroundColor:'rgb(73, 214, 160)'
-          }}>Save </button>
+          }}>SAVE</button>
           </div>
           </div>
 
       </>
     );
   }
-  // function ExpandedCard({ param, setExpanded }) {
+  function ExpandedCard({ param, setExpanded }) {
     
 
-  //     return(
+      return(
 
-  //       <div
-  //     className="ExpandedCard1"
-  //     style={{  
-  //       justifyContent:'center',
-  //       alignItems:'center'  
-  //     }}
-  //     layoutId="expandableCard"
-  //   >
+        <motion.div
+      className="ExpandedCard1"
+      style={{  
+        justifyContent:'center',
+        alignItems:'center'  
+      }}
+      layoutId="expandableCard"
+    >
       
-  //     <div style={{ alignSelf: "flex-end", cursor: "pointer", color: "white" }}>
-  //       {/* <BiMessageSquareX onClick={setExpanded} /> */}
-  //     </div>
-  //     <img src={param.img_src} alt="Imgcard" style={{
-  //       width:'300px',
-  //       height:'300px'
-  //     }}/>
-  //       <span>{param.rover.name}</span>
-  //       <span>{param.earth_date}</span>
+      <div style={{ alignSelf: "flex-end", cursor: "pointer", color: "white" }}>
+        <BiMessageSquareX onClick={setExpanded} />
+      </div>
+      <img src={param.img_src} alt="Imgcard" style={{
+        width:'300px',
+        height:'300px'
+      }}/>
+        <span>{param.rover.name}</span>
+        <span>{param.earth_date}</span>
       
-  //     <span>Last 24 hours</span>
-  //   </div>
-  //     )
-  // }
+      <span>Last 24 hours</span>
+    </motion.div>
+      )
+  }
 
 export default Card
